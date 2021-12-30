@@ -7,9 +7,12 @@ namespace car
     class Car
     {
     public:
+    Car(std::string _name);
+    void playMusic(std::string track);
     private:
-        Media _media;
-        Connector _connector;
+    std::string name;
+        Media media;
+        Connector connector;
     };
 
 }

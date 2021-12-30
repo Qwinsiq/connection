@@ -2,18 +2,21 @@
 #include <memory>
 #include "Connector.hpp"
 #include <vector>
-#include<string>
+#include <string>
+#include <iostream>
 namespace car
 {
 
     class Phone
     {
         public:
+        Phone(std::string name);
         void playSong();
-        void nextCar();
+        void nextSong();
         private:
-        std
-        std::unique_ptr<Connector> ptr_connector;
+        std::string _name;
+        int counter;
+        std::shared_ptr<Connector> ptr_connector;
         std::vector<std::string> playlist;
         
     };
