@@ -3,18 +3,22 @@
 
 namespace car
 {
-    Connector::Connector(Car car)
+    Connector::Connector(Car* car)
     {
-        ptr_car=std::make_shared<Car>();
+        ptr_car=car;
+        ptr_phone=nullptr;
         usb=false;
         aux=false;
         bluetooth=false;
         is_connection=false;
     }
-    bool Connector::getConnection(Phone phone)
+    bool Connector::getConnection(Phone* phone)
     {
-        ptr_phone=std::make_shared<Phone>(phone);
+        ptr_phone=phone;
         is_connection=true;
+        ptr_phone->getConnection(this);
+        std::cout<<"connection is on \n";
+        return true;
     }
     void Connector::reciveTask(std::string track)
     {

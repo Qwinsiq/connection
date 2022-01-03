@@ -1,14 +1,17 @@
+#pragma once
 #include "enums.hpp"
+#include <string>
 
 namespace car
 {
-class Media
-{
-    public:
-void playSong();
-void swwithTypeOfMedia();
-void playRadio();
-private:
-  enums::typeOfMedia typeOfMedia;
-};
+  class Media
+  {
+  public:
+    Media();
+    void playSong(std::string track);
+    void swithTypeOfMedia();
+
+  private:
+    enums::typeOfMedia media_type;
+  };
 }

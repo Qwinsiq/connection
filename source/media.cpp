@@ -1,6 +1,4 @@
-#pragma once
 #include "media.hpp"
-#include "enums.hpp"
 #include <iostream>
 namespace car
 {
@@ -18,5 +16,9 @@ namespace car
             media_type==enums::typeOfMedia::radio;
             std::cout<<"radio is plaing \n";
         }
+    }
+    void Media::playSong(std::string track)
+    {
+        std::cout<<"playing track "<<track<<std::endl;
     }
 }

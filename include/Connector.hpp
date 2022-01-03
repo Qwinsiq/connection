@@ -1,19 +1,26 @@
 #pragma once
 #include <memory>
+#include <optional>
 #include "car.hpp"
+#include "phone.hpp"
+
 namespace car
 {
+    class Car;
     class Connector
     {
-        bool getConnection();
-
+        public:
+        bool getConnection(Phone* phone);
+        void reciveTask(std::string track);
+        Connector(Car* car);
+        
         private:
 
         bool usb;
         bool bluetooth;
         bool aux;
         bool is_connection;
-        std::unique_ptr<Car> ptr_car;
-        std::unique_ptr<Phone> ptr_phone;
+        Car* ptr_car;
+        Phone* ptr_phone;
     };
 }
