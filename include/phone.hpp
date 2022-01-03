@@ -1,23 +1,25 @@
 #pragma once
-#include <memory>
 #include "Connector.hpp"
 #include <vector>
 #include <string>
 #include <iostream>
 namespace car
 {
-
+    class Connector;
     class Phone
     {
-        public:
+    public:
         Phone(std::string name);
+
         void playSong();
         void nextSong();
-        private:
+        void getConnection(Connector* connector);
+
+    private:
         std::string _name;
         int counter;
-        std::shared_ptr<Connector> ptr_connector;
+        bool is_connection;
+        Connector* ptr_connector;
         std::vector<std::string> playlist;
-        
     };
 }
