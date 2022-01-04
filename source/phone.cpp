@@ -1,10 +1,11 @@
 #include "phone.hpp"
+#include "Connector.hpp"
 namespace car
 {
     Phone::Phone(std::string name)
     {
         _name = name;
-        ptr_connector=nullptr;
+        ptr_connector = nullptr;
         counter = 0;
         is_connection = false;
         std::string temp = "Track ";
@@ -15,7 +16,6 @@ namespace car
     }
     void Phone::playSong()
     {
-        std::cout<<is_connection<<std::endl;
         if (is_connection)
         {
             ptr_connector->reciveTask(playlist[counter]);
@@ -30,11 +30,20 @@ namespace car
         counter++;
         playSong();
     }
-    void Phone::getConnection(Connector* connector)
+    bool Phone::getConnection(Connector* connector)
     {
-        ptr_connector=connector;
-        is_connection = true;
-        std::cout << "conected " << is_connection << std::endl;
+        if (!is_connection)
+        {
+            ptr_connector = connector;
+            is_connection = true;
+            std::cout << "conected "<< std::endl;
+            return true;
+        }
+        else
+        {
+            std::cout<<"connection is unabled \n";
+            return false;
+        }
     }
 
 }

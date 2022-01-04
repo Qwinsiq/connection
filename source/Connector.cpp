@@ -3,22 +3,24 @@
 
 namespace car
 {
-    Connector::Connector(Car* car)
+    Connector::Connector(Car *car)
     {
-        ptr_car=car;
-        ptr_phone=nullptr;
-        usb=false;
-        aux=false;
-        bluetooth=false;
-        is_connection=false;
+        ptr_car = car;
+        ptr_phone = nullptr;
+        usb = false;
+        aux = false;
+        bluetooth = false;
+        is_connection = false;
     }
     bool Connector::getConnection(Phone* phone)
     {
-        ptr_phone=phone;
-        is_connection=true;
-        ptr_phone->getConnection(this);
-        std::cout<<"connection is on \n";
-        return true;
+        if (phone->getConnection(this))
+        {
+            ptr_phone = phone;
+            is_connection = true;
+            return true;
+        }
+        else return false;
     }
     void Connector::reciveTask(std::string track)
     {
