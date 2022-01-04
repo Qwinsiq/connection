@@ -6,12 +6,11 @@
 namespace car
 {
     class Phone;
-    class Connector;
     class Car
     {
     public:
     Car(std::string _name);
-    void findPhone(car::Phone& phone);
+    bool findPhone(car::Phone& phone);
     void playMusic(std::string track);
     private:
     std::string name;

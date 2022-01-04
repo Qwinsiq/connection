@@ -13,9 +13,10 @@ namespace car
     {
         media->playSong(track);
     }
-    void Car::findPhone(Phone& phone)
+    bool Car::findPhone(Phone& phone)
     {
-        connector->getConnection(&phone);
+        if(connector->getConnection(&phone)) return true;
+        else return false;
     }
 
 }

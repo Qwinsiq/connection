@@ -3,24 +3,24 @@
 #include <optional>
 #include "car.hpp"
 #include "phone.hpp"
-
+#include "Iconnector.hpp"
 namespace car
 {
     class Car;
-    class Connector
+    class Connector:public IConnector
     {
         public:
-        bool getConnection(Phone* phone);
-        void reciveTask(std::string track);
+        bool getConnection(car::Phone* phone) override;
+        void reciveTask(std::string track) override;
         Connector(Car* car);
-        
+
         private:
 
         bool usb;
         bool bluetooth;
         bool aux;
         bool is_connection;
-        Car* ptr_car;
-        Phone* ptr_phone;
+        car::Car* ptr_car;
+        car::Phone* ptr_phone;
     };
 }

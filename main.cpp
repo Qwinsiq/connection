@@ -3,10 +3,11 @@
 
 int main()
 {
-   car::Car vaz=car::Car("VAZ");
-   car::Phone nokia=car::Phone("Nokia");
+   
+   car::Car* vaz= new car::Car("VAZ");
+   car::Phone* nokia=new car::Phone("Nokia");
    std::cout<<" program is workig\n";
-   //vaz.findPhone(nokia);
-   nokia.playSong();
-   nokia.nextSong();
+   vaz->findPhone(*nokia);
+   nokia->playSong();
+   nokia->nextSong();
 }
