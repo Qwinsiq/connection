@@ -1,6 +1,7 @@
 #pragma once
 #include "media.hpp"
 #include "Connector.hpp"
+#include "Iconnector.hpp"
 #include "phone.hpp"
 #include <memory>
 namespace car
@@ -10,12 +11,13 @@ namespace car
     {
     public:
     Car(std::string _name);
+    Car(std::string _name, car::IConnector* _connector);
     bool findPhone(car::Phone& phone);
     void playMusic(std::string track);
     private:
     std::string name;
         Media* media;
-        Connector* connector;
+        IConnector* connector;
     };
 
 }

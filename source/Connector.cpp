@@ -14,7 +14,7 @@ namespace car
     }
     bool Connector::getConnection(Phone* phone)
     {
-        if (phone->getConnection(this))
+        if (phone->getConnection(this)&&!is_connection)
         {
             ptr_phone = phone;
             is_connection = true;
