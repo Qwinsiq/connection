@@ -9,6 +9,12 @@ namespace car
         media=new Media();
         name=_name;
     }
+    Car::Car(std::string _name, car::IConnector* _connector)
+    {
+        name=_name;
+        media=new Media();
+        connector=_connector;
+    }
     void Car::playMusic(std::string track)
     {
         media->playSong(track);
@@ -18,5 +24,8 @@ namespace car
         if(connector->getConnection(&phone)) return true;
         else return false;
     }
-
+    Car::~Car()
+    {
+        delete media;  
+    }
 }

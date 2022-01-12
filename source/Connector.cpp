@@ -14,7 +14,7 @@ namespace car
     }
     bool Connector::getConnection(Phone* phone)
     {
-        if (phone->getConnection(this))
+        if (phone->getConnection(this)&&!is_connection)
         {
             ptr_phone = phone;
             is_connection = true;
@@ -25,6 +25,11 @@ namespace car
     void Connector::reciveTask(std::string track)
     {
         ptr_car->playMusic(track);
+    }
+    Connector::~Connector()
+    {
+        ptr_phone=nullptr;
+        ptr_car=nullptr;
     }
 
 }

@@ -13,6 +13,7 @@ namespace car
         bool getConnection(car::Phone* phone) override;
         void reciveTask(std::string track) override;
         Connector(Car* car);
+        virtual ~Connector();
 
         private:
 

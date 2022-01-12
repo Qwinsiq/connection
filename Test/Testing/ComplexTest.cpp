@@ -1,8 +1,8 @@
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
 #include <phone.hpp>
 #include <car.hpp>
 //#include <gmock/gmock.h>
-/* class CarTest : public ::testing::Test
+ class CarTest : public ::testing::Test
 {
 protected:
     void SetUp()
@@ -17,11 +17,19 @@ protected:
     }
     car::Car *car;
     car::Phone *phone;
-}; */
+}; 
 
-TEST (CarTest, GetConnectionTrue)
+TEST_F(CarTest, GetConnectionFalse)
 {
-    car::Car* vaz= new car::Car{"kalina"};
-    car::Phone* mot=new car::Phone{"mototola"};
-    EXPECT_TRUE(vaz->findPhone(*mot));
+    car::Phone* phone2=new car::Phone("LG");
+    EXPECT_TRUE(car->findPhone(*phone));
+    EXPECT_FALSE(car->findPhone(*phone2));
+    delete phone2;
 }
+
+
+TEST_F(CarTest, GetConnectiontrue)
+{
+    EXPECT_TRUE(car->findPhone(*phone));
+}
+

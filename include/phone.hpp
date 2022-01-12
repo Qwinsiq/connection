@@ -9,7 +9,7 @@ namespace car
     {
     public:
         Phone(std::string name);
-
+        virtual ~Phone();
         void playSong() override;
         void nextSong() override;
         bool getConnection(Connector* connector) override;
