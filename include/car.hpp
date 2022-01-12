@@ -12,6 +12,7 @@ namespace car
     public:
     Car(std::string _name);
     Car(std::string _name, car::IConnector* _connector);
+    virtual ~Car();
     bool findPhone(car::Phone& phone);
     void playMusic(std::string track);
     private:

@@ -24,5 +24,8 @@ namespace car
         if(connector->getConnection(&phone)) return true;
         else return false;
     }
-
+    Car::~Car()
+    {
+        delete media;  
+    }
 }

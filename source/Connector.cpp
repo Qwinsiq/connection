@@ -26,5 +26,10 @@ namespace car
     {
         ptr_car->playMusic(track);
     }
+    Connector::~Connector()
+    {
+        ptr_phone=nullptr;
+        ptr_car=nullptr;
+    }
 
 }

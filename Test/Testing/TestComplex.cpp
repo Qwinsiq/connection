@@ -1,5 +1,5 @@
 #include "gmock/gmock.h"
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 #include "car.hpp"
 #include "phone.hpp"
 #include "ConnectorMock.hpp"
@@ -9,14 +9,15 @@ using ::testing::StrictMock;
 using ::testing::Return;
 class TestCompex:public testing::Test
 {
-    protected:
+    public:
     void SetUp() override
     {
      con=new StrictMock<ConnectorMock>();   
      car= new car::Car("vaz", con);
+     phone=new car::Phone("nokia");
     }
     void TearDown() override
-    {
+    {   
         delete con;
         delete car;
         delete phone;

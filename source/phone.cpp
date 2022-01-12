@@ -45,5 +45,9 @@ namespace car
             return false;
         }
     }
+    Phone::~Phone()
+    {
+        ptr_connector=nullptr;
+    }
 
 }
